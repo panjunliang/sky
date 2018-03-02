@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		
+		<title></title>
+		<style >
+			
+		</style>
+	</head>
+	<body>
+		id:<input type="text" class="inp" />
+		password:<input type="password" class="inp2" />
+		<hr />
+		<input type="button" value="on" onclick="save()"/>
+		<input type="button" value="del" onclick="del()"/>
+		
+	</body>
+	
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/cookie.js"></script>
+	<script>		
+		var inp = document.getElementsByClassName('inp')[0]
+		var inp2 = document.getElementsByClassName('inp2')[0]
+		
+		inp.value = getCookie('name')
+		inp2.value = getCookie('password')
+		
+		function save(){
+			setCookie('name',inp.value,1)
+			setCookie('password',inp2.value,1)
+		}
+		
+		function del(){
+			removeCookie('name')
+			removeCookie('password')
+			inp.value = ''
+			inp2.value = ''
+		}
+		
+		
+	</script>
+</html>
